@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بلا عنوان - زياد وليد</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background-color: #0f0f0f;
+      color: #f0f0f0;
+    }
+    header {
+      background-color: #1a1a1a;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    nav a {
+      color: #f0f0f0;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #e0b045;
+    }
+    .language-switcher {
+      margin-right: 20px;
+    }
+    .language-switcher select {
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+      border: none;
+      font-size: 16px;
+      padding: 6px;
+    }
+    .hero {
+      background: url('cover.jpg') no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+      padding: 20px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero h2 {
+      font-size: 40px;
+      margin-bottom: 10px;
+      background-color: rgba(0,0,0,0.6);
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+    .hero p {
+      font-size: 18px;
+      background-color: rgba(0,0,0,0.6);
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    .buttons a {
+      background-color: #e0b045;
+      color: #000;
+      padding: 10px 20px;
+      margin: 5px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .buttons a:hover {
+      background-color: #c79834;
+    }
+    section#preview {
+      padding: 60px 20px;
+      background-color: #181818;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    #preview h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .pdf-preview {
+      width: 100%;
+      max-width: 800px;
+      height: 600px;
+      margin: 0 auto;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    }
+    #book-cover {
+      margin-top: 30px;
+    }
+    #book-cover img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    }
+    section#order {
+      padding: 60px 20px;
+      background-color: #0f0f0f;
+      text-align: center;
+    }
+    #order h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #1a1a1a;
+      padding: 30px;
+      border-radius: 12px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #e0b045;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #c79834;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>بلا عنوان</h1>
+    <nav>
+      <a href="#preview">تصفح البداية</a>
+      <a href="#order">اطلب الآن</a>
+    </nav>
+    <div class="language-switcher">
+      <select onchange="changeLanguage(this.value)">
+        <option value="ar" selected>العربية</option>
+        <option value="en">English</option>
+        <option value="tr">Türkçe</option>
+      </select>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h2>بلا عنوان</h2>
+    <p>بقلم زياد وليد</p>
+    <div class="buttons">
+      <a href="#preview">تصفح البداية</a>
+      <a href="#order">اطلب الكتاب</a>
+    </div>
+  </section>
+
+  <section id="preview">
+    <h3>تصفح بداية الكتاب</h3>
+    <iframe class="pdf-preview" src="sample.pdf"></iframe>
+    <div id="book-cover">
+      <img src="cover.jpg" alt="غلاف الكتاب">
+    </div>
+  </section>
+
+  <section id="order">
+    <h3>اطلب الكتاب الآن</h3>
+    <form>
+      <input type="text" name="name" placeholder="الاسم الكامل" required>
+      <input type="text" name="address" placeholder="العنوان بالتفصيل" required>
+      <select name="payment-method" required>
+        <option value="" disabled selected>اختر طريقة الدفع</option>
+        <option value="visa">بطاقة Visa</option>
+        <option value="mastercard">بطاقة MasterCard</option>
+      </select>
+      <input type="text" name="card-number" placeholder="رقم البطاقة" required>
+      <input type="text" name="expiry" placeholder="تاريخ الانتهاء (MM/YY)" required>
+      <input type="text" name="cvv" placeholder="رمز الأمان CVV" required>
+      <button type="submit">إتمام الطلب</button>
+    </form>
+  </section>
+
+  <script>
+    function changeLanguage(lang) {
+      const translations = {
+        'ar': {
+          'تصفح البداية': 'تصفح البداية',
+          'اطلب الآن': 'اطلب الآن',
+          'اطلب الكتاب': 'اطلب الكتاب',
+          'اطلب الكتاب الآن': 'اطلب الكتاب الآن',
+          'الاسم الكامل': 'الاسم الكامل',
+          'العنوان بالتفصيل': 'العنوان بالتفصيل',
+          'اختر طريقة الدفع': 'اختر طريقة الدفع',
+          'بطاقة Visa': 'بطاقة Visa',
+          'بطاقة MasterCard': 'بطاقة MasterCard',
+          'رقم البطاقة': 'رقم البطاقة',
+          'تاريخ الانتهاء (MM/YY)': 'تاريخ الانتهاء (MM/YY)',
+          'رمز الأمان CVV': 'رمز الأمان CVV',
+          'إتمام الطلب': 'إتمام الطلب'
+        },
+        'en': {
+          'تصفح البداية': 'Read Preview',
+          'اطلب الآن': 'Order Now',
+          'اطلب الكتاب': 'Order Book',
+          'اطلب الكتاب الآن': 'Order the Book Now',
+          'الاسم الكامل': 'Full Name',
+          'العنوان بالتفصيل': 'Full Address',
+          'اختر طريقة الدفع': 'Select Payment Method',
+          'بطاقة Visa': 'Visa Card',
+          'بطاقة MasterCard': 'MasterCard',
+          'رقم البطاقة': 'Card Number',
+          'تاريخ الانتهاء (MM/YY)': 'Expiry Date (MM/YY)',
+          'رمز الأمان CVV': 'CVV Security Code',
+          'إتمام الطلب': 'Complete Order'
+        },
+        'tr': {
+          'تصفح البداية': 'Önizlemeyi Oku',
+          'اطلب الآن': 'Şimdi Sipariş Et',
+          'اطلب الكتاب': 'Kitabı Sipariş Et',
+          'اطلب الكتاب الآن': 'Şimdi Kitabı Sipariş Et',
+          'الاسم الكامل': 'Tam Ad',
+          'العنوان بالتفصيل': 'Açık Adres',
+          'اختر طريقة الدفع': 'Ödeme Yöntemi Seçin',
+          'بطاقة Visa': 'Visa Kartı',
+          'بطاقة MasterCard': 'MasterCard',
+          'رقم البطاقة': 'Kart Numarası',
+          'تاريخ الانتهاء (MM/YY)': 'Son Kullanma Tarihi (AA/YY)',
+          'رمز الأمان CVV': 'CVV Güvenlik Kodu',
+          'إتمام الطلب': 'Siparişi Tamamla'
+        }
+      };
+
+      const elements = document.querySelectorAll('a, h3, button, input::placeholder, select option');
+      elements.forEach(el => {
+        for (const key in translations['ar']) {
+          if (el.innerHTML === key || el.placeholder === key || el.textContent === key) {
+            if (el.innerHTML === key) el.innerHTML = translations[lang][key];
+            if (el.placeholder === key) el.placeholder = translations[lang][key];
+            if (el.textContent === key) el.textContent = translations[lang][key];
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
